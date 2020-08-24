@@ -9,7 +9,7 @@ class sensor:
         GPIO.setup(self.trigger, GPIO.OUT)
         GPIO.setup(self.echo, GPIO.IN)
 
-    def sonicCheck(self):
+    def trigger_check(self):
         GPIO.output(self.trigger, True)
         time.sleep(0.00001)
         GPIO.output(self."trigger", False)
@@ -21,13 +21,19 @@ class sensor:
         elapsed = stop-start
         measure = (elapsed * 34300)/2
         if self.boundary > measure:
-            print("Boundary breached")
-            print(self.boundary)
-            print(measure)
-            self.Triggered = True
+            return True
         else:
-            self.Triggered = False
+            return False
 
-    def trigger(self):
-        self.config["check"](self)
-        print("Trigger Called")
+if __name__ == "__main__":
+    ultra = sensor(10)
+
+    try:
+        while True:
+            check = ultra.trigger_check()
+            if check == True:
+                print("Boundary hit.")
+            elif check == False:
+                print("No boundary hit.")
+    except KeyboardInterrupt:
+        GPIO.cleanup()
