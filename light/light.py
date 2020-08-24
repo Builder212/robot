@@ -19,8 +19,9 @@ if __name__ == '__main__':
     print ('Program is starting ... \n')
     LED = LED()
     try:
-        LED.on()
-        sleep(5)
-        LED.off()
+        while True:
+            LED.on()
+            sleep(5)
+            LED.off()
     except KeyboardInterrupt:   # Press ctrl-c to end the program.
         GPIO.cleanup()
