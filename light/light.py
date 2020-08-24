@@ -23,5 +23,6 @@ if __name__ == '__main__':
             LED.on()
             sleep(5)
             LED.off()
+            sleep(5)
     except KeyboardInterrupt:   # Press ctrl-c to end the program.
         GPIO.cleanup()
