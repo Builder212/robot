@@ -62,19 +62,11 @@ if __name__ == "__main__":
     m3_1 = motor("motor_3", 1)
     m4_1 = motor("motor_4", 1)
     motor_config1 = motor_set(m1_1, m2_1, m3_1, m4_1)
-    m1_2 = motor("motor_1", 2)
-    m2_2 = motor("motor_2", 2)
-    m3_2 = motor("motor_3", 2)
-    m4_2 = motor("motor_4", 2)
-    motor_config2 = motor_set(m1_2, m2_2, m3_2, m4_2)
 
     try:
         while True:
             motor_config1.forward(100)
             time.sleep(5)
             motor_config1.stop()
-            motor_config2.forward(100)
-            time.sleep(5)
-            motor_config2.stop()
     except KeyboardInterrupt:
         GPIO.cleanup()
