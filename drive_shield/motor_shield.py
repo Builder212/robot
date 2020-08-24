@@ -7,6 +7,7 @@ class motor:
                  "motor_1":{"config":{1:{"e":11,"f":15,"r":13},2:{"e":11,"f":13,"r":15}}}}
 
     def __init__(self, motor, config):
+        GPIO.setmode(GPIO.BOARD)
         self.pins = self.motor_pins[motor]["config"][config]
         GPIO.setup(self.pins['e'],GPIO.OUT)
         GPIO.setup(self.pins['f'],GPIO.OUT)
