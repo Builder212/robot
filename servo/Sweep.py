@@ -12,7 +12,7 @@ class servo:
         GPIO.setup(self.pin, GPIO.OUT)
         GPIO.output(self.pin, GPIO.LOW)
 
-        p = GPIO.PWM(servoPin, 50)
+        p = GPIO.PWM(self.pin, 50)
         p.start(0)
 
     def map(self, value, fromLow, fromHigh, toLow, toHigh):
