@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-########################################################################
-# Filename    : Sweep.py
-# Description : Servo sweep
-# Author      : www.freenove.com
-# modification: 2019/12/27
-########################################################################
 import RPi.GPIO as GPIO
 import time
 OFFSE_DUTY = 0.5        #define pulse offset of servo
@@ -23,14 +16,14 @@ def setup():
 
     p = GPIO.PWM(servoPin, 50)     # set Frequece to 50Hz
     p.start(0)                     # Set initial Duty Cycle to 0
-    
-def servoWrite(angle):      # make the servo rotate to specific angle, 0-180 
+
+def servoWrite(angle):      # make the servo rotate to specific angle, 0-180
     if(angle<0):
         angle = 0
     elif(angle > 180):
         angle = 180
-    p.ChangeDutyCycle(map(angle,0,180,SERVO_MIN_DUTY,SERVO_MAX_DUTY)) # map the angle to duty cycle and output it
-    
+    p.ChangeDutyCycle(map(angle,0,180,0,SERVO_MAX_DUTY)) # map the angle to duty cycle and output it
+
 def loop():
     while True:
         for dc in range(0, 181, 1):   # make servo rotate from 0 to 180 deg
