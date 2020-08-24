@@ -12,3 +12,28 @@ class arrow():
 
     def off(self):
         GPIO.output(self.pin,GPIO.LOW)
+
+if __name__ == "__main__":
+    print("Program is starting... \n")
+
+    from time import sleep
+
+    a1 = arrow(1)
+    a2 = arrow(2)
+    a3 = arrow(3)
+    a4 = arrow(4)
+
+    try:
+        while True:
+            a1.on()
+            a2.on()
+            a3.on()
+            a4.on()
+            sleep(3)
+            a1.off()
+            a2.off()
+            a3.off()
+            a4.off()
+            sleep(3)
+    except KeyboardInterrupt:
+        GPIO.cleanup()

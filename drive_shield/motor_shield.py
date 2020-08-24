@@ -68,5 +68,6 @@ if __name__ == "__main__":
             motor_config1.forward(100)
             sleep(5)
             motor_config1.stop()
+            sleep(5)
     except KeyboardInterrupt:
         GPIO.cleanup()
