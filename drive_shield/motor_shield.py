@@ -66,7 +66,7 @@ if __name__ == "__main__":
     try:
         while True:
             motor_config1.forward(100)
-            time.sleep(5)
+            sleep(5)
             motor_config1.stop()
     except KeyboardInterrupt:
         GPIO.cleanup()
